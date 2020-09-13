@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sata.yqj.cqdxer.desktop.AnchorPaneController">
+   <children>
+      <BorderPane styleClass="background-pic" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox fx:id="leftBox" alignment="BOTTOM_LEFT" minWidth="180.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="40.0" left="30.0" right="30.0" top="40.0" />
+               </padding>
+            </VBox>
+         </left>
+         <right>
+            <VBox fx:id="rightBox" alignment="BOTTOM_LEFT" minWidth="180.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="40.0" left="30.0" right="30.0" top="40.0" />
+               </padding>
+            </VBox>
+         </right>
+         <top>
+            <FlowPane hgap="30.0" minHeight="46.0" styleClass="top-background-color" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" styleClass="top-background-color">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="Port" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <graphic>
+                              <Sphere fx:id="status" radius="3.0" translateX="-25.0" />
+                           </graphic>
+                        </Label>
+                        <ComboBox fx:id="port" minWidth="90.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="BaudRate" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="bps" minWidth="90.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="CQDXer" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="model" minWidth="90.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="Menu" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="menu" minWidth="90.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+            </FlowPane>
+         </top>
+         <center>
+            <TextField fx:id="send" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <Slider fx:id="slider" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
