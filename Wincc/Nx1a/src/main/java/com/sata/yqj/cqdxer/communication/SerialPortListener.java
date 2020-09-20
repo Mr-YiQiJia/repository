@@ -9,8 +9,6 @@ import gnu.io.SerialPortEventListener;
  * @date 2020年9月4日 上午12:24:34
  */
 public class SerialPortListener implements SerialPortEventListener {
-    private SerialPortManager serialPortManager = SerialPortManager.getSerialPortManager();
-
     private DataAvailableListener mDataAvailableListener;
 
     public SerialPortListener(DataAvailableListener mDataAvailableListener) {
@@ -22,7 +20,7 @@ public class SerialPortListener implements SerialPortEventListener {
         switch (serialPortEvent.getEventType()) {
         case SerialPortEvent.DATA_AVAILABLE: // 1.串口存在有效数据
             if (mDataAvailableListener != null) {
-                mDataAvailableListener.dataAvailable(serialPortManager.getCurrentSerialPort());
+                mDataAvailableListener.dataAvailable();
             }
             break;
 

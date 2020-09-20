@@ -1,8 +1,6 @@
 package com.sata.yqj.cqdxer.communication;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import gnu.io.SerialPort;
 
@@ -14,8 +12,6 @@ import gnu.io.SerialPort;
 public class SerialPortManager {
     // 当前连接的串口
     private SerialPort currentSerialPort;
-    private String currentPortName;
-    private Integer currentBps;
     private static SerialPortManager serialPortManager;
     
     /**
@@ -44,22 +40,6 @@ public class SerialPortManager {
         this.currentSerialPort = currentSerialPort;
     }
     
-    public String getCurrentPortName() {
-        return currentPortName;
-    }
-
-    public void setCurrentPortName(String currentPortName) {
-        this.currentPortName = currentPortName;
-    }
-
-    public Integer getCurrentBps() {
-        return currentBps;
-    }
-
-    public void setCurrentBps(Integer currentBps) {
-        this.currentBps = currentBps;
-    }
-
     /**
      * 
      * @Description: 串口关闭和连接
@@ -75,8 +55,6 @@ public class SerialPortManager {
             SerialPortUtils.closePort(this.currentSerialPort);
         }
         this.currentSerialPort = SerialPortUtils.openPort(portName, baudrate);
-        this.currentPortName = portName;
-        this.currentBps = baudrate;
         if (null != listener && null != this.currentSerialPort) {
             SerialPortUtils.addListener(currentSerialPort, listener);
         }
@@ -89,17 +67,14 @@ public class SerialPortManager {
         }
     }
     
-    public List<String> getAvailablePort(){
-        return SerialPortUtils.findPorts();
+    public String readData(){
+        if (null != this.currentSerialPort) {
+            return new String(SerialPortUtils.readFromPort(this.currentSerialPort));
+        }
+        return null;
     }
     
-    public void setCache() {
-        if(null == this.currentPortName || null == currentBps) {
-            return ;
-        }
-        Map<String,String> cacheWrite = new HashMap<>();
-        cacheWrite.put("currentPortName", currentPortName);
-        cacheWrite.put("currentBps", currentBps.toString());
-        SystemUtils.cacheWrite(cacheWrite);
+    public List<String> getAvailablePort(){
+        return SerialPortUtils.findPorts();
     }
 }
