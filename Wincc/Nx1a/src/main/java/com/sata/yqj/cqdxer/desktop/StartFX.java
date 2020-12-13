@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -32,14 +33,14 @@ public class StartFX extends Application {
         AnchorPaneController contrl = loader.getController();
         scene.getStylesheets().add(getClass().getClassLoader().getResource("desktop.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("CQDXer");
+        stage.setTitle("Antennas Controller");
         stage.getIcons().add(new Image("images/favicon.png"));
-        stage.setMinWidth(900);
-        stage.setMinHeight(600);
-        stage.setHeight(contrl.stage_height);
-        stage.setWidth(contrl.stage_width);
-        stage.setX(contrl.stage_x);
-        stage.setY(contrl.stage_y);
+        if(null != contrl.stage_width && null != contrl.stage_height) {
+            stage.setHeight(contrl.stage_height);
+            stage.setWidth(contrl.stage_width);
+            stage.setX(contrl.stage_x);
+            stage.setY(contrl.stage_y);
+        }
         stage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             if(KeyCode.CONTROL == event.getCode()) {
                 contrl.pressedKeys.add(event.getCode());
@@ -51,6 +52,7 @@ public class StartFX extends Application {
             }
         });
         stage.addEventHandler(ScrollEvent.SCROLL, event -> {
+            //屏幕缩放(ctrl+滚动)
             if(!contrl.pressedKeys.contains(KeyCode.CONTROL)) {
                 return;
             }
@@ -59,7 +61,7 @@ public class StartFX extends Application {
                 //缩小屏幕
                 double width = stage.getWidth()+event.getDeltaY();
                 double height = stage.getHeight()+event.getDeltaY();
-                if(height < 600) {
+                if(height < 0) {
                     return;
                 }
                 stage.setY((primaryScreenBounds.getHeight()-height)/2);
@@ -97,6 +99,14 @@ public class StartFX extends Application {
             }
         });
         stage.show();
+        scene.widthProperty().addListener(observable -> redraw(contrl,scene));
+        scene.heightProperty().addListener(observable -> redraw(contrl,scene));
+    }
+
+    private void redraw(AnchorPaneController contrl, Scene scene) {
+        contrl.contontLab1.setFont(new Font(contrl.contontLab1.getFont().getName(),(45.0/280.0)*scene.getHeight()));
+        contrl.contontLab2.setFont(new Font(contrl.contontLab2.getFont().getName(),(25.0/280.0)*scene.getHeight()));
+        contrl.contontLab3.setFont(new Font(contrl.contontLab3.getFont().getName(),(35.0/280.0)*scene.getHeight()));
     }
 
     public static void main(String[] args) throws IOException {

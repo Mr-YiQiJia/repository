@@ -15,145 +15,131 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane minHeight="600.0" minWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sata.yqj.cqdxer.desktop.AnchorPaneController">
-   <top>
-      <HBox spacing="25.0" styleClass="top-style" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sata.yqj.cqdxer.desktop.AnchorPaneController">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox alignment="CENTER_RIGHT" styleClass="content-style" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="Port" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                     <graphic>
-                        <Sphere fx:id="status" radius="4.0" translateX="-25.0" />
-                     </graphic>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-                  <ComboBox fx:id="port" minWidth="90.0" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="BaudRate" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-                  <ComboBox fx:id="bps" minWidth="90.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="CQDXer" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="model" minWidth="90.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" minHeight="36.0" minWidth="80.0" text="Menu" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="menu" minWidth="90.0" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <HBox alignment="TOP_RIGHT">
-               <children>
-                  <JFXToggleButton alignment="TOP_RIGHT" minHeight="36.0" size="4.5" styleClass="jfx-toggle-button" text="Swicth" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                  </JFXToggleButton>
-               </children>
-            </HBox>
-         </children>
-      </HBox>
-   </top>
-   <left>
-      <VBox fx:id="leftMenu" spacing="10.0" styleClass="left-style" BorderPane.alignment="CENTER">
-         <children>
-          <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </VBox>
-   </left>
-   <center>
-      <VBox alignment="CENTER" styleClass="content-style" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane>
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane pickOnBounds="false">
                      <children>
-                        <Label fx:id="contontLab1" alignment="CENTER" contentDisplay="CENTER" text="CQDXer">
+                        <HBox pickOnBounds="false">
+                           <children>
+                              <Text fx:id="dropDown" fill="SKYBLUE" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="»">
+                                 <font>
+                                    <Font name="System Bold Italic" size="30.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" pickOnBounds="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text fx:id="contontLab1" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="CQDXer" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="45.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="contontLab2" alignment="CENTER" contentDisplay="CENTER" text="0.000-0.000">
+                                       <font>
+                                          <Font name="Times New Roman" size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="contontLab3" alignment="CENTER" contentDisplay="CENTER" text="0M">
+                                       <font>
+                                          <Font name="Times New Roman Bold Italic" size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </center>
+         <left>
+            <FlowPane fx:id="leftMenu" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="3.0" orientation="VERTICAL" styleClass="left-style" vgap="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+               </children>
+            </FlowPane>
+         </left>
+         <top>
+            <HBox fx:id="top" spacing="10.0" styleClass="top-style" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="3.0">
+                     <children>
+                        <Label text="Port">
                            <font>
-                              <Font name="Times New Roman" size="96.0" />
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                           <graphic>
+                              <Circle fx:id="portStatus" fill="RED" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                           </graphic>
+                        </Label>
+                        <ComboBox fx:id="port" visibleRowCount="5" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="3.0">
+                     <children>
+                        <Label text="BaudRate">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
                            </font>
                         </Label>
+                        <ComboBox fx:id="baudRate" visibleRowCount="5" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="3.0">
+                     <children>
+                        <Label text="Model">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="model" visibleRowCount="5" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="3.0">
+                     <children>
+                        <Label text="Menu">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="menu" visibleRowCount="5" />
                      </children>
                   </HBox>
                </children>
-            </AnchorPane>
-            <AnchorPane VBox.vgrow="ALWAYS">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Label fx:id="contontLab2" alignment="CENTER" contentDisplay="CENTER" text="14.000 - 14.0500" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Times New Roman Bold" size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Label fx:id="contontLab3" alignment="CENTER" contentDisplay="CENTER" text="20M" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Times New Roman Bold Italic" size="45.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
+            </HBox>
+         </top>
+      </BorderPane>
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXNodesList fx:id="hoverNode" alignment="CENTER" />
          </children>
-      </VBox>
-   </center>
-   <bottom>
-      <AnchorPane BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+      </HBox>
+   </children>
+</AnchorPane>

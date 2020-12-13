@@ -11,7 +11,7 @@
 }
 .left-style{
 	-fx-border-color:rgb(255,255,255);
-	-fx-background-color : rgb(125,124,132);
+	-fx-background-color: rgb(125,124,132);
 	-fx-background-radius: 10px;
 }
 .jfx-toggle-button {
@@ -25,14 +25,19 @@
     -fx-text-fill:rgb(255,198,23);
 }
 .button{
-	-fx-font-size: 27.0;
+	/* -fx-font-size: 23; */
     -fx-text-fill:rgb(255,255,255);
     -fx-background-color : rgb(131,78,0);
 }
-.btn-background-color-red{
-    -fx-background-color : rgb(255,0,0);
+.hover-button-style {
+	-fx-text-fill:WHITE;
+	-fx-background-color: rgb(255,0,0);
+    -fx-background-radius: 50px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 40px;
+    -fx-min-width: -fx-pref-width;
+    -fx-max-width: -fx-pref-width;
+    -fx-min-height: -fx-pref-height;
+    -fx-max-height: -fx-pref-height;
+    -jfx-button-type: RAISED;
 }
-.btn-background-color-green{
-    -fx-background-color : rgb(0,255,0);
-}
-

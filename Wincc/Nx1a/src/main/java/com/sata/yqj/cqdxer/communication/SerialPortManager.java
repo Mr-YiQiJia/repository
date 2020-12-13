@@ -67,9 +67,11 @@ public class SerialPortManager {
         }
     }
     
-    public String readData(){
+    public String[] readData(){
         if (null != this.currentSerialPort) {
-            return new String(SerialPortUtils.readFromPort(this.currentSerialPort));
+            byte[] readFromPort = SerialPortUtils.readFromPort(this.currentSerialPort);
+            String[] bytesToHexString = SystemUtils.bytesToHexString(readFromPort);
+            return bytesToHexString;
         }
         return null;
     }

@@ -74,4 +74,40 @@ public class SystemUtils {
         }
         return contentMap;
     }
+    
+    /**
+     * @Description: 16进制byte数组转字符串数组
+     * @param bArr
+     * @return String[]    
+     * @date 2020年10月18日 下午7:30:50
+     */
+    public static String[] bytesToHexString(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        String[] result = new String[bArr.length];
+        for (int i = 0; i < bArr.length; i++) {
+            String hex = Integer.toHexString(0xFF & bArr[i]);
+            if (hex.length() < 2) {
+                hex = "0" + hex;
+            }
+            result[i] = hex.toUpperCase();
+        }
+        return result;
+    }
+    
+    /**
+     * 
+     * @Description: 16进制字符串数组转byte数组
+     * @param inHex
+     * @return byte[]    
+     * @date 2020年10月18日 下午7:31:41
+     */
+    public static byte[] hexStringToBytes(String[] inHex) {
+        byte[] ret = new byte[inHex.length];
+        for (int i = 0; i < inHex.length; i++) {
+            ret[i] = (byte) Integer.parseInt(inHex[i], 16);
+        }
+        return ret;
+    }
 }
