@@ -1,0 +1,49 @@
+[
+  {
+    "id": "tabCat",
+    "instructIndex": 1,
+    "instructCode": "F3"
+  },
+  {
+    "id": "fieldFlex",
+    "instructIndex": 2,
+    "instructCode": "1",
+    "uiText": "Flex"
+  },
+  {
+    "id": "fieldYaesu",
+    "instructIndex": 2,
+    "instructCode": "2",
+    "uiText": "Yaesu"
+  },
+  {
+    "id": "fieldIcom",
+    "instructIndex": 2,
+    "instructCode": "3",
+    "uiText": "Icom"
+  },
+  {
+    "id": "fieldElecraft",
+    "instructIndex": 2,
+    "instructCode": "4",
+    "uiText": "Elecraft"
+  },
+  {
+    "id": "fieldKenwood",
+    "instructIndex": 2,
+    "instructCode": "5",
+    "uiText": "Kenwood"
+  },
+  {
+    "id": "fieldBdData",
+    "instructIndex": 2,
+    "instructCode": "6",
+    "uiText": "BData"
+  },
+  {
+    "id": "fieldMenual",
+    "instructIndex": 2,
+    "instructCode": "7",
+    "uiText": "Menual"
+  }
+]
