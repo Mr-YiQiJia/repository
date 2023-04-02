@@ -1,0 +1,57 @@
+[
+  {
+    "id": "tabOther",
+    "instructIndex": 1,
+    "instructCode": "F4"
+  },
+  {
+    "id": "fieldAnt4",
+    "instructIndex": 2,
+    "instructCode": "4",
+    "uiText": "ANT 4"
+  },
+  {
+    "id": "fieldAnt6",
+    "instructIndex": 2,
+    "instructCode": "6",
+    "uiText": "ANT 6"
+  },
+  {
+    "id": "fieldAnt8",
+    "instructIndex": 2,
+    "instructCode": "8",
+    "uiText": "ANT 8"
+  },
+  {
+    "id": "fieldTestOff",
+    "instructIndex": 3,
+    "instructCode": "0",
+    "uiText": "Test Off"
+  },{
+    "id": "fieldTestOff",
+    "instructIndex": 3,
+    "instructCode": "1",
+    "uiText": "Test On"
+  },
+  {
+    "id": "fieldAutoOff",
+    "instructIndex": 4,
+    "instructCode": "0",
+    "uiText": "Auto Off"
+  },{
+    "id": "fieldAutoOff",
+    "instructIndex": 4,
+    "instructCode": "1",
+    "uiText": "Auto On"
+  },{
+    "id": "fieldReset",
+    "instructIndex": 5,
+    "instructCode": "0",
+    "uiText": "Rest"
+  },{
+    "id": "fieldReset",
+    "instructIndex": 5,
+    "instructCode": "1",
+    "uiText": "Rest"
+  }
+]
