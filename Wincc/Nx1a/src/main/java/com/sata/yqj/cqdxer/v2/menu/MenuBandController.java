@@ -427,4 +427,97 @@ public class MenuBandController implements Initializable {
         }
         fieldCombo6.getSelectionModel().selectedItemProperty().addListener(listener6);
     }
+
+    @FXML
+    private void fieldLabel160Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel160.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+
+    @FXML
+    private void fieldLabel80Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel80.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel60Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel60.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel40Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel40.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel30Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel30.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+
+    @FXML
+    private void fieldLabel20Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel20.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+
+    @FXML
+    private void fieldLabel17Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel17.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+
+    @FXML
+    private void fieldLabel15Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel15.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel12Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel12.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel10Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel10.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
+    @FXML
+    private void fieldLabel6Clicked(){
+        List<String> code = parse.read("$..[?(@.id == '"+fieldLabel6.getId()+"')].instructCode");
+        String[] data = BAND_SEND.clone();
+        data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+        data[4] = "FF";
+        SerialPortManager.getManager().sendData(data);
+    }
 }

@@ -1,8 +1,9 @@
 package com.sata.yqj.cqdxer.v2.stup;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXToggleButton;
+import com.sata.yqj.cqdxer.common.I18N;
+import com.sata.yqj.cqdxer.common.ini.SettingStart;
 import com.sata.yqj.cqdxer.serial.SerialPortManager;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -12,7 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
+import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,36 +28,15 @@ public class StupController implements Initializable {
     @FXML
     private JFXToggleButton fieldConnect;
     @FXML
-    private TextArea fieldReceiveData;
-    @FXML
-    private JFXCheckBox fieldSendType;
-    @FXML
     private JFXCheckBox fieldAutoConnect;
-    @FXML
-    private JFXButton fieldSendData;
-    @FXML
-    private TextArea fieldSendDataValue;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initPort();
         initBaudRate();
         initConnectStatus();
-        initSendData();
-        // 发送数据和接收数据,方式按钮,绑定
-        manager.hex.bind(fieldSendType.selectedProperty());
         // 自动连接,按钮,绑定
         fieldAutoConnect.selectedProperty().bindBidirectional(manager.autoConnect);
-        // 接收数据显示框,绑定
-        fieldReceiveData.textProperty().bind(manager.dataChange);
-    }
-
-    private void initSendData() {
-        // 点击发送数据按钮,绑定
-        fieldSendData.disableProperty().bind(manager.connectStatus.not());
-        fieldSendData.setOnAction(event -> {
-            manager.sendData(fieldSendDataValue.getText());
-        });
     }
 
     /**

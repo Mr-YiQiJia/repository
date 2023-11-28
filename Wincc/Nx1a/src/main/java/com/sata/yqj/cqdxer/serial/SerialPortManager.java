@@ -1,6 +1,7 @@
 package com.sata.yqj.cqdxer.serial;
 
-import com.sata.yqj.cqdxer.common.IniUtils;
+import com.sata.yqj.cqdxer.common.ini.Config;
+import com.sata.yqj.cqdxer.common.ini.ConnectConfig;
 import gnu.io.SerialPort;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -24,10 +25,10 @@ public class SerialPortManager {
     // 当前连接的串口对象
     private SerialPort currentSerialBean;
     // 当前连接的串口端口
-    private final static String initPort = IniUtils.Config.getConnect("SerialPort");
+    private final static String initPort = ConnectConfig.getConnect(ConnectConfig.Connect.SerialPort);
     public final static SimpleObjectProperty<String> curentPort = new SimpleObjectProperty(initPort);
     // 当前连接的串口波特率
-    private final static Integer initBaudRate = IniUtils.Config.getConnect("SerialBaudRate",Integer.class);
+    private final static Integer initBaudRate = ConnectConfig.getConnect(ConnectConfig.Connect.SerialBaudRate,Integer.class);
     public final static SimpleObjectProperty<Integer> curentBaudRate = new SimpleObjectProperty(initBaudRate);
     // 数据加密方式
     public final static SimpleBooleanProperty hex = new SimpleBooleanProperty(true);
@@ -36,7 +37,7 @@ public class SerialPortManager {
     // 串口状态通知
     public final static SimpleBooleanProperty connectStatus = new SimpleBooleanProperty(false);
     // 自动连接
-    private final static Boolean initAutoConnect = IniUtils.Config.getConnect("AutoConnect",Boolean.class);
+    private final static Boolean initAutoConnect = ConnectConfig.getConnect(ConnectConfig.Connect.AutoConnect,Boolean.class);
     public final static SimpleObjectProperty<Boolean> autoConnect = new SimpleObjectProperty(initAutoConnect);
     // 系统串口波特率列表
     public final static List<Integer> baudRateList = Arrays.asList(new Integer[]{300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 43000, 56000, 57600, 115200});

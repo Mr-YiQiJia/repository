@@ -42,13 +42,13 @@
     "id": "fieldFlexMode",
     "instructIndex": 3,
     "instructCode": "6",
-    "uiText": "BdData"
+    "uiText": "BDATA"
   },
   {
     "id": "fieldFlexMode",
     "instructIndex": 3,
     "instructCode": "7",
-    "uiText": "Menual"
+    "uiText": "Manual"
   },
   {
     "id": "fieldSignalMode",
@@ -133,7 +133,7 @@
     "id": "fieldFrequency",
     "instructIndex": 6,
     "instructCode": "3",
-    "uiText": "5.3510-5.367"
+    "uiText": "5.351-5.367"
   },
   {
     "id": "fieldFrequency",
@@ -185,7 +185,7 @@
   },
   {
     "id": "fieldFrequency",
-    "uiText": "Manual Mode"
+    "uiText": "Manual mode"
   },
   {
     "id": "fieldFrequency",

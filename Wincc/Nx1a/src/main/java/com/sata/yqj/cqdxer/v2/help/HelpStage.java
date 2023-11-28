@@ -11,7 +11,7 @@ public class HelpStage extends StageLoader {
     public void initStage(Stage main) {
         Scene scene = getScene("v2/help.fxml");
         main.setScene(scene);
-        main.setTitle(I18N.getString("about"));
+        main.setTitle(I18N.getString("help"));
     }
 
 
