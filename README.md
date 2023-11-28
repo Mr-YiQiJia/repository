@@ -22,4 +22,3 @@ version 1.0		https://github.com/Mr-YiQiJia/serial_desktop
 - linux
 
 支持一键构建平台安装包**-setup.exe
-测试
