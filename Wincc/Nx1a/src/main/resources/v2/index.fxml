@@ -62,21 +62,28 @@
                     </padding>
                 </VBox>
             </center>
-            <top>
-                <MenuBar BorderPane.alignment="CENTER_LEFT">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="%stup">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#toSerialConnect" text="%serial.connect" />
-                     </items></Menu>
-                        <Menu mnemonicParsing="false" text="%help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#toAbout" text="%about" />
-                            </items>
+         <top>
+            <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+               <children>
+                      <MenuBar>
+                          <menus>
+                              <Menu mnemonicParsing="false" text="%stup">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#toSerialConnect" text="%serial.connect" />
+                           </items>
                         </Menu>
-                    </menus>
-                </MenuBar>
-            </top>
+                              <Menu mnemonicParsing="false" text="%help">
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" onAction="#toAbout" text="%help" />
+                                  </items>
+                              </Menu>
+                          </menus>
+                      </MenuBar>
+                  <HBox HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="deviceBox" stylesheets="@css/combo-blue.css" />
+               </children>
+            </HBox>
+         </top>
         </BorderPane>
     </children>
 </AnchorPane>

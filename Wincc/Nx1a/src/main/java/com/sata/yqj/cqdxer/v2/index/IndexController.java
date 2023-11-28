@@ -5,7 +5,9 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.TypeRef;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
+import com.sata.yqj.cqdxer.common.I18N;
 import com.sata.yqj.cqdxer.common.JsonReaderUtils;
+import com.sata.yqj.cqdxer.common.ini.DeviceConfig;
 import com.sata.yqj.cqdxer.mapping.MappingVo;
 import com.sata.yqj.cqdxer.mapping.TabMenuEnum;
 import com.sata.yqj.cqdxer.serial.SerialPortManager;
@@ -17,24 +19,23 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.text.MessageFormat;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class IndexController implements Initializable {
     public final static String INDEX_MAPPING = JsonReaderUtils.read("mapping/index.json");
@@ -67,11 +68,25 @@ public class IndexController implements Initializable {
     private Button fieldMenu;
     @FXML
     private Button fieldOff;
+    @FXML
+    private ComboBox deviceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        deviceBox.setItems(deviceBoxNumber());
         initIndexListener();
         initDataListener();
+    }
+
+    private ObservableList<String> deviceBoxNumber(){
+        List<Character> value = new ArrayList();
+        for (int i = 'A'; i <= 'Z'; i++) {
+            value.add((char)i);
+        }
+        String templ = I18N.getString("device.number");
+        return FXCollections.observableArrayList(value.stream().map(o -> {
+            return MessageFormat.format(templ, o);
+        }).collect(Collectors.toList()));
     }
 
     @FXML
@@ -190,8 +205,8 @@ public class IndexController implements Initializable {
         if (mappingVoMap.containsKey(id)) {
             fieldFlexMode.setText(mappingVoMap.get(id).getUiText());
             fieldFlexMode.getStyleClass().add("color-blue");
-            if ("Menual".equals(mappingVoMap.get(id).getUiText())) {
-                fieldFrequency.setText("Manual Mode");
+            if ("Manual".equals(mappingVoMap.get(id).getUiText())) {
+                fieldFrequency.setText("Manual mode");
                 fieldFrequency.getParent().getStyleClass().removeAll("screen-error");
             }
         } else {

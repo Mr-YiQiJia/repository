@@ -1,7 +1,7 @@
 package com.sata.yqj.cqdxer.v2.index;
 
-import com.sata.yqj.cqdxer.common.IniUtils;
 import com.sata.yqj.cqdxer.common.StageLoader;
+import com.sata.yqj.cqdxer.common.ini.DesktopConfig;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -13,19 +13,19 @@ public class IndexStage extends StageLoader {
         main.setScene(scene);
         main.setTitle("Antennas Controller");
         main.getIcons().add(new Image("images/favicon.png"));
-        Double height = IniUtils.Config.getDesktop("Height",Double.class);
+        Double height = DesktopConfig.getDesktop(DesktopConfig.Desktop.Height,Double.class);
         if(ObjectUtils.isNotEmpty(height)){
             main.setHeight(height);
         }
-        Double width = IniUtils.Config.getDesktop("Width",Double.class);
+        Double width = DesktopConfig.getDesktop(DesktopConfig.Desktop.Width,Double.class);
         if(ObjectUtils.isNotEmpty(width)){
             main.setWidth(width);
         }
-        Double x = IniUtils.Config.getDesktop("X",Double.class);
+        Double x = DesktopConfig.getDesktop(DesktopConfig.Desktop.X,Double.class);
         if(ObjectUtils.isNotEmpty(x)){
             main.setX(x);
         }
-        Double y = IniUtils.Config.getDesktop("Y",Double.class);
+        Double y = DesktopConfig.getDesktop(DesktopConfig.Desktop.Y,Double.class);
         if(ObjectUtils.isNotEmpty(y)){
             main.setY(y);
         }

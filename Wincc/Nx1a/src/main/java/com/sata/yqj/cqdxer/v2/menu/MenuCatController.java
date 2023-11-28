@@ -43,9 +43,9 @@ public class MenuCatController implements Initializable {
     @FXML
     private Button fieldKenwood;
     @FXML
-    private Button fieldBdData;
+    private Button fieldBData;
     @FXML
-    private Button fieldMenual;
+    private Button fieldManual;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -119,14 +119,14 @@ public class MenuCatController implements Initializable {
             data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
             SerialPortManager.getManager().sendData(data);
         });
-        fieldBdData.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldBdData.getId() + "')].instructCode");
+        fieldBData.setOnAction(event -> {
+            List<String> code = parse.read("$..[?(@.id == '" + fieldBData.getId() + "')].instructCode");
             String[] data = CAT_SEND.clone();
             data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
             SerialPortManager.getManager().sendData(data);
         });
-        fieldMenual.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldMenual.getId() + "')].instructCode");
+        fieldManual.setOnAction(event -> {
+            List<String> code = parse.read("$..[?(@.id == '" + fieldManual.getId() + "')].instructCode");
             String[] data = CAT_SEND.clone();
             data[3] = code.stream().findFirst().orElse(StringUtils.EMPTY);
             SerialPortManager.getManager().sendData(data);
@@ -164,16 +164,16 @@ public class MenuCatController implements Initializable {
             fieldKenwood.getStyleClass().removeAll("color-orange");
         }
 
-        if (mappingVoMap.containsKey(fieldBdData.getId())) {
-            fieldBdData.getStyleClass().add("color-orange");
+        if (mappingVoMap.containsKey(fieldBData.getId())) {
+            fieldBData.getStyleClass().add("color-orange");
         } else {
-            fieldBdData.getStyleClass().removeAll("color-orange");
+            fieldBData.getStyleClass().removeAll("color-orange");
         }
 
-        if (mappingVoMap.containsKey(fieldMenual.getId())) {
-            fieldMenual.getStyleClass().add("color-orange");
+        if (mappingVoMap.containsKey(fieldManual.getId())) {
+            fieldManual.getStyleClass().add("color-orange");
         } else {
-            fieldMenual.getStyleClass().removeAll("color-orange");
+            fieldManual.getStyleClass().removeAll("color-orange");
         }
     }
 }

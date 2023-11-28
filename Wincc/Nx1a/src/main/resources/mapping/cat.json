@@ -35,15 +35,15 @@
     "uiText": "Kenwood"
   },
   {
-    "id": "fieldBdData",
+    "id": "fieldBData",
     "instructIndex": 2,
     "instructCode": "6",
-    "uiText": "BData"
+    "uiText": "BDATA"
   },
   {
-    "id": "fieldMenual",
+    "id": "fieldManual",
     "instructIndex": 2,
     "instructCode": "7",
-    "uiText": "Menual"
+    "uiText": "Manual"
   }
 ]

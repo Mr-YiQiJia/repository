@@ -1,6 +1,7 @@
 package com.sata.yqj.cqdxer.start;
 
-import com.sata.yqj.cqdxer.common.IniUtils;
+import com.sata.yqj.cqdxer.common.ini.ConnectConfig;
+import com.sata.yqj.cqdxer.common.ini.DesktopConfig;
 import com.sata.yqj.cqdxer.exception.GloablExceptionHandle;
 import com.sata.yqj.cqdxer.serial.SerialPortManager;
 import com.sata.yqj.cqdxer.v2.index.IndexStage;
@@ -59,15 +60,15 @@ public class StartFX extends Application {
     }
 
     private void addLocation(Stage stage){
-        IniUtils.Config.addDesktop("Width",stage.getWidth());
-        IniUtils.Config.addDesktop("Height",stage.getHeight());
-        IniUtils.Config.addDesktop("X",stage.getX());
-        IniUtils.Config.addDesktop("Y",stage.getY());
+        DesktopConfig.addDesktop(DesktopConfig.Desktop.Width,stage.getWidth());
+        DesktopConfig.addDesktop(DesktopConfig.Desktop.Height,stage.getHeight());
+        DesktopConfig.addDesktop(DesktopConfig.Desktop.X,stage.getX());
+        DesktopConfig.addDesktop(DesktopConfig.Desktop.Y,stage.getY());
     }
 
     public void addConnect(){
-        IniUtils.Config.addConnect("SerialPort",SerialPortManager.getManager().curentPort.getValue());
-        IniUtils.Config.addConnect("SerialBaudRate",SerialPortManager.getManager().curentBaudRate.getValue());
-        IniUtils.Config.addConnect("AutoConnect",SerialPortManager.getManager().autoConnect.getValue());
+        ConnectConfig.addConnect(ConnectConfig.Connect.SerialPort,SerialPortManager.getManager().curentPort.getValue());
+        ConnectConfig.addConnect(ConnectConfig.Connect.SerialBaudRate,SerialPortManager.getManager().curentBaudRate.getValue());
+        ConnectConfig.addConnect(ConnectConfig.Connect.AutoConnect,SerialPortManager.getManager().autoConnect.getValue());
     }
 }
