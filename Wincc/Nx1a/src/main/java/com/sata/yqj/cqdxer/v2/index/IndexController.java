@@ -205,10 +205,6 @@ public class IndexController implements Initializable {
         if (mappingVoMap.containsKey(id)) {
             fieldFlexMode.setText(mappingVoMap.get(id).getUiText());
             fieldFlexMode.getStyleClass().add("color-blue");
-            if ("Manual".equals(mappingVoMap.get(id).getUiText())) {
-                fieldFrequency.setText("Manual mode");
-                fieldFrequency.getParent().getStyleClass().removeAll("screen-error");
-            }
         } else {
             fieldFlexMode.setText(null);
             fieldFlexMode.getStyleClass().removeAll("color-blue");
@@ -248,6 +244,19 @@ public class IndexController implements Initializable {
             String instructCode = mappingVoMap.get(id).getInstructCode();
             if (10 <= Integer.valueOf(instructCode) && Integer.valueOf(instructCode) <= 12) {
                 fieldFrequency.getParent().getStyleClass().add("screen-error");
+            }
+        }
+        settingFrequencyWithFlex(mappingVoMap);
+    }
+
+    private void settingFrequencyWithFlex(Map<String, MappingVo> mappingVoMap) {
+        if ("Manual".equals(mappingVoMap.get(fieldFlexMode.getId()).getUiText())) {
+            if("11".equals(mappingVoMap.get(fieldFrequency.getId()).getInstructCode())){
+                fieldFrequency.setText("BAND ERROR");
+                fieldFrequency.getParent().getStyleClass().add("screen-error");
+            }else {
+                fieldFrequency.setText("Manual mode");
+                fieldFrequency.getParent().getStyleClass().removeAll("screen-error");
             }
         }
     }
