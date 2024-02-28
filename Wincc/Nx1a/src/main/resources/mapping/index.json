@@ -212,6 +212,11 @@
     "uiText": "NOT BAND"
   },
   {
+    "id": "fieldFrequency",
+    "instructIndex": 6,
+    "instructCode": "13"
+  },
+  {
     "id": "fieldOff",
     "instructIndex": 7,
     "instructCode": "1",

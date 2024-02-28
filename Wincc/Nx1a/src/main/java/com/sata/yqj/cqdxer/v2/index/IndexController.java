@@ -236,9 +236,12 @@ public class IndexController implements Initializable {
     }
 
     private void settingFrequency(Map<String, MappingVo> mappingVoMap) {
+        fieldFrequency.getParent().getStyleClass().removeAll("screen-error","screen-red");
+        if ("13".equals(mappingVoMap.get(fieldFrequency.getId()).getInstructCode())) {
+            fieldFrequency.getParent().getStyleClass().add("screen-red");
+            return;
+        }
         String id = fieldFrequency.getId();
-        fieldFrequency.setText("0.000-0.000");
-        fieldFrequency.getParent().getStyleClass().removeAll("screen-error");
         if (mappingVoMap.containsKey(id)) {
             fieldFrequency.setText(mappingVoMap.get(id).getUiText());
             String instructCode = mappingVoMap.get(id).getInstructCode();
