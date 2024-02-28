@@ -120,6 +120,12 @@
   {
     "id": "fieldFrequency",
     "instructIndex": 6,
+    "instructCode": "0",
+    "uiText": "0.000-0.000"
+  },
+  {
+    "id": "fieldFrequency",
+    "instructIndex": 6,
     "instructCode": "1",
     "uiText": "1.800-2.000"
   },
@@ -204,6 +210,11 @@
     "instructIndex": 6,
     "instructCode": "12",
     "uiText": "NOT BAND"
+  },
+  {
+    "id": "fieldFrequency",
+    "instructIndex": 6,
+    "instructCode": "13"
   },
   {
     "id": "fieldOff",

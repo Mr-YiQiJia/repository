@@ -71,6 +71,13 @@
     -fx-text-fill :  red;
 }
 
+.screen-red{
+    -fx-background-color: red;
+}
+.screen-red .label{
+    -fx-text-fill :  black;
+}
+
 /*labe圆角*/
 .label-radius{
     -fx-background-radius: 10;
