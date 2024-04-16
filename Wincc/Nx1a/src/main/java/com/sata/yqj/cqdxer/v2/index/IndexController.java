@@ -7,12 +7,9 @@ import com.jayway.jsonpath.TypeRef;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.sata.yqj.cqdxer.common.I18N;
 import com.sata.yqj.cqdxer.common.JsonReaderUtils;
-import com.sata.yqj.cqdxer.common.ini.DeviceConfig;
 import com.sata.yqj.cqdxer.mapping.MappingVo;
-import com.sata.yqj.cqdxer.mapping.TabMenuEnum;
 import com.sata.yqj.cqdxer.serial.SerialPortManager;
 import com.sata.yqj.cqdxer.v2.help.HelpStage;
-import com.sata.yqj.cqdxer.v2.menu.*;
 import com.sata.yqj.cqdxer.v2.stup.StupStage;
 import com.sun.javafx.stage.StageHelper;
 import javafx.application.Platform;
@@ -21,12 +18,12 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -35,7 +32,6 @@ import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class IndexController implements Initializable {
     public final static String INDEX_MAPPING = JsonReaderUtils.read("mapping/index.json");
@@ -61,7 +57,7 @@ public class IndexController implements Initializable {
     @FXML
     private Button fieldAnt8;
     @FXML
-    private Button fieldSignalMode;
+    private Label fieldSignalMode;
     @FXML
     private Label fieldFlexMode;
     @FXML
@@ -112,36 +108,6 @@ public class IndexController implements Initializable {
         SerialPortManager.getManager().sendData(data);
     }
 
-    private void toMenu() {
-        MenuStage menuWindows = MenuStage.getInstance();
-        menuWindows.getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                Tab selectedItem = MenuController.current.getValue();
-                if(ObjectUtils.isEmpty(selectedItem)){
-                    return;
-                }
-                if (TabMenuEnum.Band.name().equals(selectedItem.getText())) {
-                    MenuBandController menuBandController = new MenuBandController();
-                    String[] data = menuBandController.BAND_SEND.clone();
-                    data[5] = "1";
-                    SerialPortManager.getManager().sendData(data);
-                } else if (TabMenuEnum.Cat.name().equals(selectedItem.getText())) {
-                    MenuCatController menuCatController = new MenuCatController();
-                    String[] data = menuCatController.CAT_SEND.clone();
-                    data[4] = "1";
-                    SerialPortManager.getManager().sendData(data);
-                } else if (TabMenuEnum.Other.name().equals(selectedItem.getText())) {
-                    MenuOtherController menuOtherController = new MenuOtherController();
-                    String[] data = menuOtherController.OTHER_SEND.clone();
-                    data[7] = "1";
-                    SerialPortManager.getManager().sendData(data);
-                }
-            }
-        });
-        menuWindows.show();
-    }
-
     private Map<String, MappingVo> convertInstructToUi(String data) {
         Map<String, MappingVo> mapping = new HashMap<>();
         if (ObjectUtils.isEmpty(data)) {
@@ -185,8 +151,6 @@ public class IndexController implements Initializable {
                 settingFrequency(mappingVoMap);
                 settingFlex(mappingVoMap);
                 settingOff(mappingVoMap);
-            } else {
-                toMenu();
             }
         });
     }
@@ -378,11 +342,6 @@ public class IndexController implements Initializable {
             List<String> code = parse.read("$..[?(@.id == '" + fieldAnt8.getId() + "')].instructCode");
             String[] data = INDEX_SEND.clone();
             data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
-            SerialPortManager.getManager().sendData(data);
-        });
-        fieldSignalMode.setOnAction(event -> {
-            String[] data = INDEX_SEND.clone();
-            data[3] = "1";
             SerialPortManager.getManager().sendData(data);
         });
         fieldOff.setOnAction(event -> {

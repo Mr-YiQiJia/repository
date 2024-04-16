@@ -5,7 +5,6 @@ import com.sata.yqj.cqdxer.common.ini.DesktopConfig;
 import com.sata.yqj.cqdxer.exception.GloablExceptionHandle;
 import com.sata.yqj.cqdxer.serial.SerialPortManager;
 import com.sata.yqj.cqdxer.v2.index.IndexStage;
-import com.sata.yqj.cqdxer.v2.menu.MenuStage;
 import com.sun.javafx.stage.StageHelper;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -25,10 +24,6 @@ public class StartFX extends Application {
         // 加载界面xml和界面css样式
         IndexStage indexWindows = IndexStage.getInstance();
         indexWindows.show();
-
-        //预先初始化menu窗口,暂不显示界面
-        MenuStage menuWindows = MenuStage.getInstance();
-        menuWindows.setOwner(indexWindows.getStage());
 
         // 程序关闭监听
         Stage main = StageHelper.getStages().stream().findFirst().get();

@@ -57,7 +57,7 @@
                             <mainClass>${exec.mainClass}</mainClass>
                             <!-- Embeds a customized JRE with the app. -->
                             <bundleJre>true</bundleJre>
-                            <jrePath>E:\git repository\Wincc\jre</jrePath>
+                            <jrePath>D:\Developer\Java\jdk1.8.0_181\jre</jrePath>
                             <!--Bundles all dependencies (JAR files) with the app-->
                             <copyDependencies>false</copyDependencies>
                             <!--the plugin packages your code in a runnable JAR and bundle it with the app-->

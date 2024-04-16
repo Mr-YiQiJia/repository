@@ -37,7 +37,7 @@
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
                                         <Button fx:id="fieldAnt1" disable="true" ellipsisString="A1..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT1" />
@@ -48,10 +48,9 @@
                                         <Button fx:id="fieldAnt6" disable="true" ellipsisString="A6..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT6" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                         <Button fx:id="fieldAnt7" disable="true" ellipsisString="A7..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                         <Button fx:id="fieldAnt8" disable="true" ellipsisString="A8..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT8" textFill="#1c0e61" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                        <Button fx:id="fieldMenu" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toMenuPrepared" styleClass="color-orange" text="MENU" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <Button fx:id="fieldSignalMode" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                        <Button fx:id="fieldOff" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="color-red" text="OFF" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                        <Button fx:id="fieldOff" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="color-red" text="OFF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="fieldFlexMode" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 3;" GridPane.rowIndex="2" />
+                              <Label fx:id="fieldSignalMode" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                     </children>
                                 </GridPane>
                             </children>
