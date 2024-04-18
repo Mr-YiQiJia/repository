@@ -61,8 +61,6 @@ public class IndexController implements Initializable {
     @FXML
     private Label fieldFlexMode;
     @FXML
-    private Button fieldMenu;
-    @FXML
     private Button fieldOff;
     @FXML
     private ComboBox deviceBox;
@@ -284,7 +282,6 @@ public class IndexController implements Initializable {
         SimpleBooleanProperty simple4 = new SimpleBooleanProperty(display >= 4);
         SimpleBooleanProperty simple6 = new SimpleBooleanProperty(display >= 6);
         SimpleBooleanProperty simple8 = new SimpleBooleanProperty(display >= 8);
-        fieldMenu.disableProperty().bind(simple4.not());
         fieldAnt1.disableProperty().bind(simple4.not());
         fieldAnt2.disableProperty().bind(simple4.not());
         fieldAnt3.disableProperty().bind(simple4.not());
