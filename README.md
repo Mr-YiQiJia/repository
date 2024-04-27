@@ -10,6 +10,7 @@ version 1.0		https://github.com/Mr-YiQiJia/serial_desktop
 2.系统组件
 --------------
 组件列表:
+-SpingBoot
 -rxtxcomm
 -javafx
 -ini4j
