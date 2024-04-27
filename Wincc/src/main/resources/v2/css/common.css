@@ -1,0 +1,107 @@
+.color-purple{
+    -fx-background-color : rgb(163,85,175);
+    -fx-effect: dropshadow(gaussian, rgb(163,85,175), 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-purple:pressed{
+    -fx-background-color: derive(rgb(163,85,175), 35%);
+}
+
+.color-red{
+    -fx-background-color : red;
+    -fx-effect: dropshadow(gaussian, red, 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-red:pressed{
+    -fx-background-color: derive(red, 35%);
+}
+
+.color-blue{
+    -fx-background-color : rgb(157, 255, 255);
+    -fx-effect: dropshadow(gaussian, rgb(157, 255, 255), 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-blue:pressed{
+    -fx-background-color: derive(rgb(157, 255, 255), 35%);
+}
+
+.color-mud{
+    -fx-background-color : rgb(233,217,185);
+    -fx-effect: dropshadow(gaussian, rgb(233,217,185), 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-mud:pressed{
+    -fx-background-color: derive(rgb(233,217,185), 35%);
+}
+
+.color-green{
+    -fx-background-color : rgb(34,177,76);
+    -fx-effect: dropshadow(gaussian, rgb(34,177,76), 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-green:pressed{
+    -fx-background-color: derive(rgb(34,177,76), 35%);
+}
+
+.color-orange{
+    -fx-background-color : rgb(250,176,5);
+    -fx-effect: dropshadow(gaussian, rgb(250,176,5), 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+.button.color-orange:pressed{
+    -fx-background-color: derive(rgb(250,176,5), 35%);
+}
+
+.button{
+    -fx-effect: dropshadow(gaussian, gray, 10, 0, 0, 0);
+    -fx-background-insets:0;
+}
+
+.screen-normal{
+    -fx-background-color: rgb(157, 255, 255);
+}
+.screen-normal .label{
+    -fx-text-fill :  black;
+}
+
+.screen-error{
+    -fx-background-color: rgb(255, 242, 0);
+}
+.screen-error .label{
+    -fx-text-fill :  red;
+}
+
+.screen-red{
+    -fx-background-color: red;
+}
+.screen-red .label{
+    -fx-text-fill :  black;
+}
+
+/*labe圆角*/
+.label-radius{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+* {
+    -fx-font-size:1.5em;
+    -fx-tab-max-width:200em;
+    -fx-tab-max-height:200em;
+}
+
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-background-color: rgb(250,176,5);
+}
+.tab-header-background {
+    -fx-background-color: rgb(241, 243, 244);
+}
+.tab-label {
+    -fx-text-fill: black;
+    -fx-font-weight: normal;
+}
+
+.table-column{
+    -fx-alignment: center
+}

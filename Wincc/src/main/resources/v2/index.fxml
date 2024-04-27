@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sata.view.controller.IndexController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <VBox spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" styleClass="screen-normal" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="fieldFrequency" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="0.000-0.000">
+                                    <font>
+                                        <Font name="Times New Roman" size="25.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                            <children>
+                                <GridPane hgap="5.0" vgap="5.0" HBox.hgrow="ALWAYS">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button fx:id="fieldAnt1" disable="true" ellipsisString="A1..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT1" />
+                                        <Button fx:id="fieldAnt2" disable="true" ellipsisString="A2..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT2" GridPane.columnIndex="1" />
+                                        <Button fx:id="fieldAnt3" disable="true" ellipsisString="A3..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT3" GridPane.columnIndex="2" />
+                                        <Button fx:id="fieldAnt4" disable="true" ellipsisString="A4..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT4" GridPane.columnIndex="3" />
+                                        <Button fx:id="fieldAnt5" disable="true" ellipsisString="A5..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT5" GridPane.rowIndex="1" />
+                                        <Button fx:id="fieldAnt6" disable="true" ellipsisString="A6..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT6" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button fx:id="fieldAnt7" disable="true" ellipsisString="A7..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <Button fx:id="fieldAnt8" disable="true" ellipsisString="A8..." maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ANT8" textFill="#1c0e61" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <Button fx:id="fieldOff" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="color-red" text="OFF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label fx:id="fieldFlexMode" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-radius: 3;" GridPane.rowIndex="2" />
+                              <Label fx:id="fieldSignalMode" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+            </center>
+         <top>
+            <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+               <children>
+                      <MenuBar>
+                          <menus>
+                              <Menu mnemonicParsing="false" text="%stup">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#toSerialConnect" text="%serial.connect" />
+                           </items>
+                        </Menu>
+                              <Menu mnemonicParsing="false" text="%help">
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" onAction="#toAbout" text="%help" />
+                                  </items>
+                              </Menu>
+                          </menus>
+                      </MenuBar>
+                  <HBox HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="deviceBox" stylesheets="@css/combo-blue.css" />
+               </children>
+            </HBox>
+         </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
