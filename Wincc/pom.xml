@@ -111,6 +111,8 @@
                             <goal>package</goal>
                         </goals>
                         <configuration>
+                            <bundleJre>true</bundleJre>
+                            <jrePath>D:\Developer\Java\jdk1.8.0_181\jre</jrePath>
                             <mainClass>com.sata.StartFX</mainClass>
                             <!--程序名称-->
                             <name>CQDXER</name>
