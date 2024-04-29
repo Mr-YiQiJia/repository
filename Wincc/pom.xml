@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <exec.mainClass>com.sata.start.StartFX</exec.mainClass>
+        <exec.mainClass>com.sata.StartFX</exec.mainClass>
     </properties>
 
     <parent>
@@ -103,7 +103,7 @@
             <plugin>
                 <groupId>io.github.fvarrui</groupId>
                 <artifactId>javapackager</artifactId>
-                <version>1.7.5</version>
+                <version>1.7.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -112,8 +112,10 @@
                         </goals>
                         <configuration>
                             <bundleJre>true</bundleJre>
-                            <jrePath>D:\Developer\Java\jdk1.8.0_181\jre</jrePath>
-                            <mainClass>com.sata.StartFX</mainClass>
+                            <jrePath>${basedir}\jre</jrePath>
+                            <version>${project.version}</version>
+                            <!-- Full path to your app main class -->
+                            <mainClass>${exec.mainClass}</mainClass>
                             <!--程序名称-->
                             <name>CQDXER</name>
                             <displayName>${name}</displayName>
@@ -129,6 +131,9 @@
                                     <chinese>compiler:Languages\ChineseSimplified.isl</chinese>
                                 </setupLanguages>
                                 <exeCreationTool>launch4j</exeCreationTool>
+                                <generateSetup>true</generateSetup>
+                                <!--生成msi安装文件-->
+                                <generateMsi>false</generateMsi>
                                 <!--Select Destination Location wizard page.-->
                                 <disableDirPage>false</disableDirPage>
                                 <!--Setup Completed wizard page-->

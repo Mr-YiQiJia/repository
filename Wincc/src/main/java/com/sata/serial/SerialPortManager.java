@@ -42,8 +42,6 @@ public class SerialPortManager {
     public SimpleObjectProperty<Boolean> autoConnect = new SimpleObjectProperty(CONNECTS.getAutoConnect());
     // 系统串口波特率列表
     public final static List<Integer> baudRateList = Arrays.asList(new Integer[]{300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 43000, 56000, 57600, 115200});
-    // 系统端口列表
-    public List<String> portList = SerialPortUtils.findPorts();
 
     public void setCurrentSerialBean(SerialPort currentSerialBean) {
         this.currentSerialBean = currentSerialBean;

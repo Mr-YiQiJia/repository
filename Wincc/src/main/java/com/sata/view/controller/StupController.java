@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXToggleButton;
 import com.sata.common.BeanUtil;
 import com.sata.serial.SerialPortManager;
+import com.sata.serial.SerialPortUtils;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.value.ChangeListener;
@@ -43,7 +44,7 @@ public class StupController implements Initializable {
      * @date 2020年8月30日 下午8:21:30
      */
     private void initPort() {
-        fieldPort.setItems(FXCollections.observableArrayList(portManager.portList));
+        fieldPort.setItems(FXCollections.observableArrayList(SerialPortUtils.findPorts()));
         fieldPort.valueProperty().bindBidirectional(portManager.curentPort);
         fieldPort.disableProperty().bind(portManager.connectStatus);
     }
