@@ -70,13 +70,5 @@ public class StupController implements Initializable {
         BooleanBinding fieldBaudRateBinding = fieldBaudRate.getSelectionModel().selectedItemProperty().isNull();
         fieldConnect.disableProperty().bind(Bindings.or(fieldPortBinding, fieldBaudRateBinding));
         fieldConnect.selectedProperty().bindBidirectional(portManager.connectStatus);
-        fieldConnect.setOnAction(event -> {
-            JFXToggleButton but = (JFXToggleButton) event.getSource();
-            if (but.isSelected()) {
-                portManager.open();
-            } else {
-                portManager.close();
-            }
-        });
     }
 }

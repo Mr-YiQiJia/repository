@@ -23,11 +23,9 @@ import java.util.logging.Logger;
  */
 @Component
 public class SerialPortManager {
-    private static final Logger log = Logger.getLogger(SerialPortManager.class.toString());
-
     private Connects CONNECTS = BeanUtil.getBean(Connects.class);
     // 当前连接的串口对象
-    private SerialPort currentSerialBean;
+    private SerialPort serialPort;
     // 当前连接的串口端口
     public SimpleObjectProperty<String> curentPort = new SimpleObjectProperty(CONNECTS.getSerialPort());
     // 当前连接的串口波特率
@@ -43,34 +41,26 @@ public class SerialPortManager {
     // 系统串口波特率列表
     public final static List<Integer> baudRateList = Arrays.asList(new Integer[]{300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 43000, 56000, 57600, 115200});
 
-    public void setCurrentSerialBean(SerialPort currentSerialBean) {
-        this.currentSerialBean = currentSerialBean;
-        connectStatus.set(!ObjectUtils.isEmpty(currentSerialBean));
+    public SerialPortManager() {
+        init();
+        autoConnect();
     }
 
-    public SerialPortManager() {
-        autoConnect();
+    private void init(){
+        connectStatus.addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                this.serialPort =  SerialPortUtils.openPort(curentPort.getValue(), curentBaudRate.getValue());
+                SerialPortUtils.addListener(serialPort);
+            } else {
+                SerialPortUtils.closePort(serialPort);
+            }
+        });
     }
 
     private void autoConnect(){
         if(Boolean.TRUE.equals(autoConnect.getValue())){
-            open();
+            connectStatus.set(true);
         }
-    }
-
-    public void close(){
-        SerialPortUtils.closePort(currentSerialBean);
-        setCurrentSerialBean(null);
-    }
-
-    public void open() {
-        if (ObjectUtils.isEmpty(curentPort.getValue()) || ObjectUtils.isEmpty(curentBaudRate.getValue())) {
-            log.info("serialPort portName or baudrate is empty.connecting failed");
-            return;
-        }
-        this.close();
-        setCurrentSerialBean(SerialPortUtils.openPort(curentPort.getValue(), curentBaudRate.getValue()));
-        SerialPortUtils.addListener(currentSerialBean);
     }
 
     public void sendData(String data) {
@@ -79,14 +69,14 @@ public class SerialPortManager {
 
     public void sendData(String[] data) {
         if (hex.getValue()) {
-            SerialPortUtils.send(currentSerialBean, hexToByte(data));
+            SerialPortUtils.send(serialPort, hexToByte(data));
         } else {
-            SerialPortUtils.send(currentSerialBean, StringUtils.join(data, " ").getBytes());
+            SerialPortUtils.send(serialPort, StringUtils.join(data, " ").getBytes());
         }
     }
 
     public void readData() {
-        dataChangeNotice(SerialPortUtils.read(currentSerialBean));
+        dataChangeNotice(SerialPortUtils.read(serialPort));
     }
 
     private void dataChangeNotice(byte[] datas) {
