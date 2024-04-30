@@ -48,7 +48,7 @@ PrivilegesRequiredOverridesAllowed=commandline
 #else 
 PrivilegesRequiredOverridesAllowed=commandline dialog
 #end
-LicenseFile={#MyAppLicense}
+// LicenseFile={#MyAppLicense}
 SetupIconFile={#MyAppIcon}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 Compression=lzma
@@ -57,7 +57,7 @@ SolidCompression=yes
 
 [Languages]
 #foreach ($language in $info.winConfig.setupLanguages.entrySet())
-Name: "${language.key}"; MessagesFile: "${language.value}"
+Name: "${language.key}"; MessagesFile: "${language.value}"; LicenseFile: "{#MyAppLicense}/LICENSE.${language.key}"
 #end
 
 [Tasks]

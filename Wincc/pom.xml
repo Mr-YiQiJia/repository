@@ -122,6 +122,8 @@
                             <description>x64</description>
                             <organizationName>CQDXER, Inc.</organizationName>
                             <organizationUrl>https://github.com/Mr-YiQiJia/serial_desktop</organizationUrl>
+                            <!-- 安装同意许可协议-->
+                            <licenseFile>${basedir}/license</licenseFile>
                             <winConfig>
                                 <icoFile>${basedir}/src/main/resources/images/favicon.ico</icoFile>
                                 <!--安装文件语言选项-->
