@@ -44,5 +44,6 @@ public class StartFX extends Application {
         connects.addSerialPort(portManager.curentPort.getValue());
         connects.addSerialBaudRate(portManager.curentBaudRate.getValue());
         connects.addAutoConnect(portManager.autoConnect.getValue());
+        Runtime.getRuntime().exit(0);
     }
 }
