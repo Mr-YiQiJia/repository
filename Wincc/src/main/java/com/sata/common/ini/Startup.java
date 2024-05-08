@@ -13,7 +13,7 @@ public class Startup {
     private Setting cfg;
 
     public enum Part {
-        Language, Footer
+        Language, Footer, SingleInstance
     }
 
     public void addLanguage(Object value) {
@@ -30,5 +30,9 @@ public class Startup {
 
     public String getFooter() {
         return cfg.get(this.getClass().getSimpleName(), Part.Footer.name());
+    }
+
+    public boolean getSingleInstance() {
+        return Optional.ofNullable(cfg.get(this.getClass().getSimpleName(), Part.SingleInstance.name(),Boolean.class)).orElse(false);
     }
 }

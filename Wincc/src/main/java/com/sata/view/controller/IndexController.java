@@ -1,14 +1,11 @@
 package com.sata.view.controller;
 
-import com.jayway.jsonpath.DocumentContext;
-import com.jayway.jsonpath.TypeRef;
 import com.sata.common.BeanUtil;
 import com.sata.common.I18N;
-import com.sata.common.JsonPathUtil;
-import com.sata.common.JsonReaderUtils;
-import com.sata.view.StageManager;
+import com.sata.mapping.MappingManager;
 import com.sata.mapping.MappingVo;
 import com.sata.serial.SerialPortManager;
+import com.sata.view.StageManager;
 import com.sata.view.stage.HelpStage;
 import com.sata.view.stage.IndexStage;
 import com.sata.view.stage.StupStage;
@@ -24,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 import java.text.MessageFormat;
@@ -32,11 +28,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class IndexController implements Initializable {
-    public final static String INDEX_MAPPING = JsonReaderUtils.read("mapping/index.json");
-    private String[] INDEX_SEND = new String[]{"FA", "F1", "00", "00", "00", "00", "FB"};
-    private DocumentContext parse = JsonPathUtil.parse(INDEX_MAPPING);
     private SerialPortManager portManager = BeanUtil.getBean(SerialPortManager.class);
     private StageManager stageManager = BeanUtil.getBean(StageManager.class);
+    private MappingManager mappingManager = BeanUtil.getBean(MappingManager.class);
 
     @FXML
     private Label fieldFrequency;
@@ -98,23 +92,22 @@ public class IndexController implements Initializable {
         if (ObjectUtils.isEmpty(data)) {
             return mapping;
         }
-        TypeRef<List<MappingVo>> tr = new TypeRef<List<MappingVo>>() {
-        };
         String[] instructs = data.split(" ");
         for (int i = 0; i < instructs.length; i++) {
             String instruct = instructs[i];
-            if (i == 2) {
-                List<MappingVo> read = parse.read("$..[?(@.instructIndex == '" + i + "')]", tr);
-                Map<String, MappingVo> collect = read.stream().collect(Collectors.toMap(MappingVo::getId, vo -> {
+            for (MappingVo vo : mappingManager.indexReceive) {
+                if(i == 2 && i == vo.getInstructIndex()){
                     vo.setInstructCode(instruct);
-                    return vo;
-                }));
-                mapping.putAll(collect);
-                continue;
+                    mapping.put(vo.getId(),vo);
+                }
+                if(i != vo.getInstructIndex()){
+                    continue;
+                }
+                if(!instruct.equals(vo.getInstructCode())){
+                    continue;
+                }
+                mapping.put(vo.getId(),vo);
             }
-            List<MappingVo> read = parse.read("$..[?(@.instructIndex == '" + i + "' && @.instructCode == '" + instruct + "')]", tr);
-            Map<String, MappingVo> collect = read.stream().collect(Collectors.toMap(MappingVo::getId, vo -> vo));
-            mapping.putAll(collect);
         }
         return mapping;
     }
@@ -275,56 +268,47 @@ public class IndexController implements Initializable {
 
     private void initIndexListener() {
         fieldAnt1.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt1.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt2.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt2.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt3.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt3.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt4.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt4.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt5.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt5.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt6.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt6.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt7.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt7.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldAnt8.setOnAction(event -> {
-            List<String> code = parse.read("$..[?(@.id == '" + fieldAnt8.getId() + "')].instructCode");
-            String[] data = INDEX_SEND.clone();
-            data[4] = code.stream().findFirst().orElse(StringUtils.EMPTY);
+            MappingVo mapping = mappingManager.indexReceive.stream().filter(vo -> vo.getId().equals(((Button) event.getSource()).getId())).findFirst().get();
+            String[] data = mappingManager.indexSend(4,mapping.getInstructCode());
             portManager.sendData(data);
         });
         fieldOff.setOnAction(event -> {
-            String[] data = INDEX_SEND.clone();
-            data[5] = "1";
+            String[] data = mappingManager.indexSend(5,"1");
             portManager.sendData(data);
         });
     }

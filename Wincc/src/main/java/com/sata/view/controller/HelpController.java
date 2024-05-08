@@ -1,8 +1,8 @@
 package com.sata.view.controller;
 
-import com.jayway.jsonpath.JsonPath;
 import com.sata.common.BeanUtil;
 import com.sata.common.I18N;
+import com.sata.common.JsonReaderUtils;
 import com.sata.common.ini.Startup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class HelpController  implements Initializable {
     private final static Startup startup = BeanUtil.getBean(Startup.class);
-    private ObservableList datas = FXCollections.observableArrayList(JsonPath.parse(I18N.getString("about.content.error.datas")).read("$", List.class));
+    private ObservableList datas = FXCollections.observableArrayList(JsonReaderUtils.readValue(I18N.getString("about.content.error.datas"), List.class));
     @FXML
     private TableView errorsTable;
     @FXML
