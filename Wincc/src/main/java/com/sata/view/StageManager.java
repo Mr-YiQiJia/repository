@@ -1,6 +1,7 @@
 package com.sata.view;
 
 import com.sata.common.StrUtlis;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -32,5 +33,15 @@ public class StageManager {
 
     public <E> E get(Class<E> clazz) {
         return (E) get(getKey(clazz));
+    }
+
+    @SneakyThrows
+    public StageLoader register(Class<? extends StageLoader> aClazz) {
+        StageLoader news = aClazz.newInstance();
+        StageLoader old = put(news);
+        if(old != null){
+            old.close();
+        }
+        return news;
     }
 }

@@ -39,18 +39,7 @@ public abstract class StageLoader extends Stage {
         this.loadProperties();
     }
 
-    @SneakyThrows
     public StageLoader reload() {
-        return register(this.getClass());
-    }
-
-    @SneakyThrows
-    public static StageLoader register(Class<? extends StageLoader> aClazz) {
-        StageLoader news = aClazz.newInstance();
-        StageLoader old = stageManager.put(news);
-        if(old != null){
-            old.close();
-        }
-        return news;
+        return stageManager.register(this.getClass());
     }
 }

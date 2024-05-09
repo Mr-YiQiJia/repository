@@ -4,7 +4,6 @@ import com.sata.common.BeanUtil;
 import com.sata.common.ini.Connects;
 import com.sata.common.ini.Desktop;
 import com.sata.serial.SerialPortManager;
-import com.sata.view.StageLoader;
 import com.sata.view.StageManager;
 import com.sata.view.stage.HelpStage;
 import com.sata.view.stage.IndexStage;
@@ -25,9 +24,10 @@ public class StartFX extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        StageLoader.register(IndexStage.class).show();
-        StageLoader.register(HelpStage.class);
-        StageLoader.register(StupStage.class);
+        StageManager stageManager = BeanUtil.getBean(StageManager.class);
+        stageManager.register(IndexStage.class).show();
+        stageManager.register(HelpStage.class);
+        stageManager.register(StupStage.class);
     }
 
     @Override
